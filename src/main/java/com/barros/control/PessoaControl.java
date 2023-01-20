@@ -8,53 +8,62 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.barros.model.PessoaModel;
+import com.barros.view.GeralView;
 import com.barros.view.PessoaView;
 
 public class PessoaControl {
-	public void receber() {
+	public void receberPessoa() {
 		JSONArray jAr = new JSONArray();
 		FileWriter escrever = null;
 		JSONObject objOne = new JSONObject();
 		PessoaModel pOne = new PessoaModel();
 		PessoaView pView = new PessoaView();
-
+		GeralView gView = new GeralView();
+		VeiculoControl vC = new VeiculoControl();
 		
-		try (Scanner s = new Scanner(System.in)) {
+		try (Scanner ss = new Scanner(System.in)) {
 			pView.nome();
-			pOne.setNome(s.next());
-			
+			pOne.setNome(ss.next());
+
 			pView.cpf();
-			pOne.setCpf(s.nextFloat());
-			
+			pOne.setCpf(ss.nextFloat());
+
 			pView.cidade();
-			pOne.setCidade(s.next());
-			
+			pOne.setCidade(ss.next());
+
 			pView.bairro();
-			pOne.setBairro(s.next());
-			
+			pOne.setBairro(ss.next());
+
 			pView.estado();
-			pOne.setEstado(s.next());
-			
+			pOne.setEstado(ss.next());
+
 			objOne.put("Nome", pOne.getNome());
 			objOne.put("CPF", pOne.getCpf());
 			objOne.put("Bairro", pOne.getBairro());
 			objOne.put("cidade", pOne.getCidade());
 			objOne.put("Estado", pOne.getEstado());
-			
+
 			jAr.put(objOne);
-			System.out.println(objOne);
 			
+
 			try {
-				escrever = new FileWriter("dados.json");
-				
+				escrever = new FileWriter("pessoa.json");
+
 				escrever.write(objOne.toString());
 				escrever.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
+			gView.cadVeic();
+			int x;
+			x = ss.nextInt();
+			if (x == 1) {
+				vC.receberVeiculo();
+			}
 		}
 		
 		
-	
+
 	}
 }
