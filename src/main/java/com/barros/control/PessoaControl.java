@@ -8,7 +8,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.barros.model.PessoaModel;
-import com.barros.view.GeralView;
 import com.barros.view.PessoaView;
 
 public class PessoaControl {
@@ -18,9 +17,7 @@ public class PessoaControl {
 		JSONObject objOne = new JSONObject();
 		PessoaModel pOne = new PessoaModel();
 		PessoaView pView = new PessoaView();
-		GeralView gView = new GeralView();
-		VeiculoControl vC = new VeiculoControl();
-		
+
 		try (Scanner ss = new Scanner(System.in)) {
 			pView.nome();
 			pOne.setNome(ss.next());
@@ -44,7 +41,6 @@ public class PessoaControl {
 			objOne.put("Estado", pOne.getEstado());
 
 			jAr.put(objOne);
-			
 
 			try {
 				escrever = new FileWriter("pessoa.json");
@@ -54,16 +50,8 @@ public class PessoaControl {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
-			gView.cadVeic();
-			int x;
-			x = ss.nextInt();
-			if (x == 1) {
-				vC.receberVeiculo();
-			}
+
 		}
-		
-		
 
 	}
 }
