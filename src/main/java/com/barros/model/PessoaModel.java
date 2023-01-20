@@ -4,7 +4,7 @@ public class PessoaModel {
 	//Nome,  cpf, cidade, bairro, estado
 	
 	private String nome;
-	private Float cpf;
+	private Double cpf;
 	private String cidade;
 	private String bairro;
 	private String estado;
@@ -15,11 +15,11 @@ public class PessoaModel {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Float getCpf() {
+	public Double getCpf() {
 		return cpf;
 	}
-	public void setCpf(Float cpf) {
-		this.cpf = cpf;
+	public void setCpf(double d) {
+		this.cpf = d;
 	}
 	public String getCidade() {
 		return cidade;

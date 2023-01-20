@@ -26,7 +26,7 @@ public class PessoaControl {
 			pOne.setNome(ss.next());
 
 			pView.cpf();
-			pOne.setCpf(ss.nextFloat());
+			pOne.setCpf(ss.nextDouble());
 
 			pView.cidade();
 			pOne.setCidade(ss.next());
