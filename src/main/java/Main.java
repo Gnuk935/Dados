@@ -1,15 +1,14 @@
 
-import com.barros.control.PessoaControl;
+import com.barros.bo.ChamaBB;
 import com.barros.view.GeralView;
 
 public class Main {
 	public static void main(String[] args) {
 		GeralView gView = new GeralView();
-		PessoaControl pC = new PessoaControl();
-
+		ChamaBB vaiPorra = new ChamaBB();
 		
 		gView.Inicio();
-		pC.receberPessoa();
+		vaiPorra.chamaBB();
 		gView.fim();
 
 	}
